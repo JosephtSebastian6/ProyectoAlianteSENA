@@ -1,0 +1,95 @@
+MAIN.PY
+
+´Función: Punto de entrada de la aplicación FastAPI.
+ Qué hace:
+
+	1. Crea la instancia de la API (alianteAPP).
+
+	2. Registra todos los routers (clientes, productos, ventas, autenticación).
+
+	3. Configura CORS para permitir peticiones desde el frontend.
+
+	4. Define algunas rutas de prueba.
+
+
+AUTO_ROUTES.PY
+
+ Función: Maneja el registro e inicio de sesión de usuarios.
+ Qué hace:
+
+	1. Ruta /register para crear usuarios nuevos con contraseña hasheada.
+
+	2. Ruta /login que valida credenciales y devuelve un token JWT para autenticación segura.
+
+
+Clever_MySQL_conn.py
+
+ Función: Configura las conexiones a la base de datos MySQL.
+ Qué hace:
+
+	1. Establece conexión directa con MySQL (mysql.connector) y crea un cursor (cleverCursor) para ejecutar SQL crudo.
+
+	2. Define engine, SessionLocal y Base para usar SQLAlchemy.
+
+	3. Proporciona la función get_db como dependencia para rutas que usan ORM.
+
+CLIENTE.PY
+
+ Función: Maneja operaciones CRUD sobre clientes usando SQL crudo.
+ Qué hace:
+
+	1. Permite crear, listar, editar y eliminar clientes con consultas SQL manuales.
+
+	2. Usa cleverCursor y mysqlConn para interactuar con la base de datos.
+
+PRODUCTO.PY
+
+Función: Maneja operaciones CRUD sobre productos usando SQL crudo.
+Qué hace:
+
+	1. Permite registrar, obtener, actualizar y eliminar productos desde la base de datos.
+
+	2.Ejecuta consultas SQL manuales con cleverCursor.
+
+CRUD.PY
+
+Función: Contiene la lógica de acceso a datos usando SQLAlchemy (ORM).
+Qué hace:
+
+	1. Implementa funciones para manejar clientes, ventas, detalle de ventas y usuarios.
+
+	2. Se usa desde routes.py para mantener la lógica de negocio separada de las rutas.
+
+MODELS.PY
+
+Función: Define las tablas de la base de datos como modelos ORM.
+Qué hace:
+
+	1. Declara clases Cliente, Venta, Producto, DetalleVenta y Usuario.
+
+	2. Usa relationship para establecer relaciones entre entidades (uno a muchos, etc.).
+
+ROUTES.PY
+
+Función: Define rutas que usan SQLAlchemy para interactuar con la base de datos.
+Qué hace:
+
+	1. Permite crear, listar y obtener clientes, ventas y detalles de ventas usando los modelos y funciones del archivo crud.py.
+
+SCHEMAS.PY
+
+Función: Define los modelos de datos usados por FastAPI para entrada y salida.
+Qué hace:
+
+	1. Usa Pydantic para validar datos que entran a la API y formatear los que salen.
+
+	2. Incluye esquemas para clientes, ventas, detalle de ventas y usuarios.
+
+USUARIOS_MAP.PY
+
+Función: Ruta adicional para consultar la tabla usuario con SQL crudo.
+Qué hace:
+
+	1. Tiene una ruta (/cityPark_usuarios/) que ejecuta una consulta SQL directa.
+
+	2.⚠️ Contiene un error tipográfico en fethall() → debería ser fetchall().
