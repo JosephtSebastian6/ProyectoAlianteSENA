@@ -1,4 +1,6 @@
-Módulo 1: Gestión de Usuarios y Autenticación
+Objetivo General: El sistema permitirá a las microempresas gestionar sus operaciones de negocio, centrándose en el control de ventas, la administración de productos y la gestión de clientes.
+
+Módulo 1: Gestión de Usuarios 
 RF1.1: Registro de Usuarios: El sistema DEBE permitir a un usuario administrador registrarse para crear una cuenta inicial del negocio.
 RF1.2: Inicio de Sesión (Login): El sistema DEBE permitir a los usuarios autenticarse utilizando credenciales (ej. email/nombre de usuario y contraseña).
 RF1.3: Gestión de Sesiones: El sistema DEBE mantener la sesión del usuario activa mientras este interactúa con la aplicación.
