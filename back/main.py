@@ -24,6 +24,7 @@ alianteAPP.include_router(routerRDB)
 # Lista de orígenes permitidos para CORS (dominios desde los cuales se puede acceder al backend)
 origins = [
     "http://localhost.tiangolo.com",
+    "http://localhost:5173",  # ✅ Este es el frontend en Vite
     "https://localhost.tiangolo.com",
     "http://localhost",
     "http://localhost:8080",
@@ -33,7 +34,7 @@ origins = [
 # Configuración del middleware CORS para permitir peticiones desde frontend
 alianteAPP.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Orígenes permitidos
+    allow_origins=origins, # Orígenes permitidos
     allow_credentials=True,  # Permite envío de credenciales (cookies, headers, etc.)
     allow_methods=["*"],  # Permite todos los métodos HTTP (GET, POST, PUT, DELETE, etc.)
     allow_headers=["*"],  # Permite todos los encabezados HTTP
