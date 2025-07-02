@@ -1,0 +1,48 @@
+#root {
+  /* Elimina max-width y margin: 0 auto; */
+  /* padding: 2rem;  -- Puedes decidir si mantener este padding o gestionarlo con Tailwind en Home.jsx */
+  text-align: center; /* Puedes mantener este si es necesario, aunque Tailwind puede manejarlo */
+
+  /* Nuevas propiedades para ocupar el 100% */
+  width: 100%; /* Asegura que ocupe el 100% del ancho disponible de su padre (el body) */
+  min-height: 100vh; /* Opcional: Asegura que ocupe al menos el 100% del alto de la ventana */
+  padding: 0; /* Elimina el padding global del #root, gestiona el padding por sección con Tailwind */
+  margin: 0; /* Asegura que no tenga márgenes */
+  overflow-x: hidden; /* Muy importante para evitar barras de scroll horizontales si algo se desborda temporalmente */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
